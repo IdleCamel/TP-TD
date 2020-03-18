@@ -12,6 +12,7 @@ public class Test {
     public static void main(String[] args) throws FileNotFoundException {
         String path = "/Users/snoke/Desktop/coursIUT/S2/P21/TP-TD/src/Semaine6/fichierPersonne.txt";
         ArrayList<Personne> listPersone = lirePersonne(path);
+        ArrayList<Personne> personnesNeeLeMemeMois = extraire(listPersone, 10);
     }
 
     public static ArrayList<Personne> lirePersonne(String fichier) throws FileNotFoundException {
@@ -38,4 +39,15 @@ public class Test {
         return  res;
     }
 
+    public static ArrayList<Personne> extraire(ArrayList<Personne> lp, int mois){
+        ArrayList<Personne> res = new ArrayList<>();
+
+        for (Personne p : lp){
+            int moisNaissance = Integer.parseInt(String.valueOf(p.getDateNaissance().getMonthValue()));
+            if(mois == moisNaissance){
+                res.add(p);
+            }
+        }
+        return res;
+    }
 }
