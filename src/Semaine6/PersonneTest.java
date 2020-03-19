@@ -39,8 +39,8 @@ class PersonneTest {
 
     @Test
     void getPrenoms() {
-        assertEquals("Valentin", p1.getPrenom(0));
-        assertEquals("Cedric", p2.getPrenom(1));
+        assertEquals("Valentin", p1.getPrenom(0)); // NON CONFORME A LA SPECIFICATION DE LA CLASSE PERSONNE
+        assertEquals("Cedric", p2.getPrenom(1)); // NON CONFORME A LA SPECIFICATION DE LA CLASSE PERSONNE
     }
 
     @Test
@@ -52,13 +52,13 @@ class PersonneTest {
     @Test
     void testGetPrenoms() {
         assertEquals("Valentin ", p1.getPrenoms());
-        assertEquals("Valentin Cedric ", p2.getPrenoms());
+        assertEquals("Valentin Cedric ", p2.getPrenoms()); // CELA SENT LE TEST A POSTERIORI SINON, POURQUOI METTRE UN ESPACE EN FIN DE LIGNE ?
     }
 
     @Test
     void getListeDesPrenoms() {
         ArrayList exepted = new ArrayList(Arrays.asList("Valentin", "Cedric"));
-        equals(exepted.equals(p2.getListeDesPrenoms()));
+        equals(exepted.equals(p2.getListeDesPrenoms())); // ??????????????????
     }
 
     @Test
@@ -68,18 +68,20 @@ class PersonneTest {
 
     @Test
     void getAge() {
-        assertEquals(20, p1.getAge());
+        assertEquals(20, p1.getAge()); // DOIT ECHOUER CAR p1 A 19 ANS ...
     }
 
     @Test
     void testGetAge() {
-        assertEquals(20, p1.getAge(LocalDate.now()));
+        assertEquals(20, p1.getAge(LocalDate.now())); // MEME TEST QUE LE PRECEDENT
     }
 
     @Test
     void testToString() {
-        assertEquals("BLOCH Valentin 2000-10-10", p1.toString());
-        assertEquals("COUCOU Valentin Cedric 2000-10-10", p2.toString());
+        assertEquals("BLOCH Valentin 2000-10-10", p1.toString()); // NON CONFORME A LA SPECIFICATION DE LA CLASSE PERSONNE
+    }
+        assertEquals("COUCOU Valentin Cedric 2000-10-10", p2.toString()); // NON CONFORME A LA SPECIFICATION DE LA CLASSE PERSONNE
+    }
     }
 
 }
